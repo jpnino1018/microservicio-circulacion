@@ -12,5 +12,5 @@ public interface CatalogoClient {
 
     @PutMapping("/libros/{libroId}/disponibilidad") 
     void actualizarDisponibilidad(@PathVariable("libroId") String id, 
-@RequestBody Boolean disponible); 
+    @RequestBody Boolean disponible); 
 }
