@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration 
 @EnableWebSecurity 
-@EnableMethodSecurity // Reemplaza @EnableGlobalMethodSecurity 
+@EnableMethodSecurity 
 public class SecurityConfig { 
  
     @Bean 
@@ -20,6 +20,7 @@ public class SecurityConfig {
         http 
                 .authorizeHttpRequests(authz -> authz 
                         .requestMatchers("/circulacion/public/**").permitAll() 
+                        .requestMatchers("/v3/**", "/swagger-ui/**").permitAll() 
                         .anyRequest().authenticated()) 
                 .oauth2ResourceServer(oauth2 -> oauth2 
                         .jwt(jwt -> 

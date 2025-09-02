@@ -51,7 +51,7 @@ public class CirculacionController {
     })
     @Operation(summary = "Consultar todos los préstamos", description = "Permite obtener la lista de todos los préstamos")
     @GetMapping("/prestamos")
-    @PreAuthorize("hasRole('ROLE_LIBRARIAN', 'ROLE_USER')")
+    @PreAuthorize("hasAnyRole('ROLE_LIBRARIAN', 'ROLE_USER')")
     public List<Prestamo> obtenerTodosPrestamos() {
         return circulacionService.obtenerTodosPrestamos();
     }
